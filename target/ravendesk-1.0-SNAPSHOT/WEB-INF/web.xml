@@ -8,9 +8,21 @@
     <!--<session-config>    
    <session-timeout>10</session-timeout>
  </session-config> 10 minutes -->
+    <servlet-mapping>
+        <servlet-name>StorageServlet</servlet-name>
+        <url-pattern>/StorageServlet</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errors/Error404.html</location>
+    </error-page>
     <servlet>
         <servlet-name>TranscodeServlet</servlet-name>
         <servlet-class>club.lonelypenguin.ravendesk.TranscodeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StorageServlet</servlet-name>
+        <servlet-class>club.lonelypenguin.ravendesk.StorageServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TranscodeServlet</servlet-name>
@@ -69,13 +81,13 @@
    <listener-class>Listener1</listener-class>
  </listener>
  
- <welcome-file-list>
-   <welcome-file>index.html</welcome-file>
-   <welcome-file>index.htm</welcome-file>
-   <welcome-file>index.jsp</welcome-file>
-   <welcome-file>default.html</welcome-file>
-   <welcome-file>default.htm</welcome-file>
-   <welcome-file>default.jsp</welcome-file>
- </welcome-file-list>
- -->
+    <welcome-file-list>
+      <welcome-file>index.html</welcome-file>
+      <welcome-file>index.htm</welcome-file>
+      <welcome-file>index.jsp</welcome-file>
+      <welcome-file>default.html</welcome-file>
+      <welcome-file>default.htm</welcome-file>
+      <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    -->
 </web-app>

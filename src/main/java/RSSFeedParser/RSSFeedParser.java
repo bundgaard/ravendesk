@@ -54,7 +54,7 @@ public class RSSFeedParser {
             XMLInputFactory xmlFactory = XMLInputFactory.newInstance();
             XMLEventReader xmlEventReader = xmlFactory.createXMLEventReader(c.getInputStream());
             List<Thumbnail> thumbnails = new ArrayList<Thumbnail>();
-            while (xmlEventReader.hasNext()) {
+            while (xmlEventReader.hasNext()) {               
                 XMLEvent event = xmlEventReader.nextEvent();
                 if (event.isStartElement()) {
                     String localPart = event.asStartElement().getName().getLocalPart();
@@ -129,7 +129,7 @@ public class RSSFeedParser {
                                 }
                                
                             }
-                            thumbnails.add(t);
+                            thumbnail = t;
 
                             break;
                         }
@@ -146,11 +146,13 @@ public class RSSFeedParser {
                         m.setDescription(description);
                         m.setAuthor(author);
                         m.setUrl(url);
-                        m.setThumbnail(thumbnails);
+                        m.getThumbnail().add(thumbnail);
 
                         feed.getMessages().add(m);
+                        
                     }
                 }
+                //thumbnails.clear();
 
             }
         } catch (Exception e) {

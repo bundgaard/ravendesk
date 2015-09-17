@@ -5,6 +5,7 @@
  */
 package RSSFeedParser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,7 +58,7 @@ public class Message {
     private String url;
     private String creatorString;
     private String nameString;
-    private List<Thumbnail> thumbnail;
+    private final List<Thumbnail> thumbnail = new ArrayList<Thumbnail>();
     
     
 
@@ -156,9 +157,6 @@ public class Message {
         return thumbnail;
     }
 
-    public void setThumbnail(List<Thumbnail> thumbnail) {
-        this.thumbnail = thumbnail;
-    }
 
 
    
