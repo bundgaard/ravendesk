@@ -1,0 +1,88 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 17, 2015, Sep 17, 2015 9:44:35 PM
+    Author     : dbundgaard
+*/
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#splitter {
+    height: 100%;
+}
+
+#horizonal, #vertical {
+    height: 100%;
+}
+
+#ravenList {
+    padding: 10px 5px;
+    margin-bottom: -1px;
+
+    min-height: 90%;
+}
+.product {
+    float: left;
+    position: relative;
+    width: 150px;
+    height: 170px;
+    margin: 0 5px 100px;
+    padding: 0;
+}
+.product img {
+    width: 110px;
+    height: 110px;
+}
+.product h3 {
+    margin: 0;
+    padding: 3px 5px 0 0;
+    max-width: 96px;
+    overflow: hidden;
+    line-height: 1.1em;
+    font-size: .9em;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #999;
+}
+.product p {
+    visibility: hidden;
+}
+.product:hover p {
+    visibility: visible;
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 110px;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(75,75,75,0.75);
+    transition: background .2s linear, color .2s linear;
+    -moz-transition: background .2s linear, color .2s linear;
+    -webkit-transition: background .2s linear, color .2s linear;
+    -o-transition: background .2s linear, color .2s linear;
+}
+.k-link .listitem {
+    color: #ffffff !important;
+}
+.k-header .tall {
+    height: 100%;
+
+}
+.k-listview:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
