@@ -52,16 +52,10 @@
             </div>
         </div>
         <script id="ravenListTemplate" type="text/x-kendo-template">
-            <div class="product">
-
-            #for (var i = 0, t = 1; i < t; i++) { #
-            <img width="128" height="128 " src="#=thumbnail[i].url#">
-
-            #}#
+            <div class="product">          
+            <img width="128" height="128 " src="#=thumbnail[0].url#" alt="#=thumbnail[0].credit#">
             <h3>#= title #</h3>
             <p><a href="#= link #" class="k-link listitem" target="_new">Link</a></p>
-
-
             </div>
         </script>
 

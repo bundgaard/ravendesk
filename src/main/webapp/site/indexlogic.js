@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+var _feedArray = ['http://feeds.abcnews.com/abcnews/topstories'];
 
 function onChage() {
     $("#ravenList").html(kendo.render(kendo.template($("#ravenListTemplate")).html(), this.view()));
@@ -18,7 +19,6 @@ $("input[name=ravenWindowClose]").click(function () {
     var addWindow = $("#ravenAddWindow").data("kendoWindow");
     addWindow.close();
 });
-$(document).ready(function () {
     var itemsDS = new kendo.data.DataSource({
         transport: {
             read: {
@@ -31,7 +31,6 @@ $(document).ready(function () {
         schema: {
             data: "messages",
             total: function (resp) {
-
                 return resp.messages.length;
             },
             model: {
@@ -46,6 +45,8 @@ $(document).ready(function () {
         pageSize: 15
                 /*change: onChage*/
     });
+
+$(document).ready(function () {
     itemsDS.read();
     $("#ravenList").kendoListView({
         dataSource: itemsDS,
