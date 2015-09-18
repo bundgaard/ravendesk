@@ -48,6 +48,8 @@ public class RSSFeedParser {
             Thumbnail thumbnail = null;
 
             boolean isHeader = true;
+            List<Message> hej = new ArrayList<Message>();
+            
 
             URL l_url = getUrl();
             URLConnection c = l_url.openConnection();

@@ -8,10 +8,7 @@
     <!--<session-config>    
    <session-timeout>10</session-timeout>
  </session-config> 10 minutes -->
-    <servlet-mapping>
-        <servlet-name>StorageServlet</servlet-name>
-        <url-pattern>/StorageServlet</url-pattern>
-    </servlet-mapping>
+    
     <error-page>
         <error-code>404</error-code>
         <location>/errors/Error404.html</location>
@@ -27,6 +24,10 @@
     <servlet-mapping>
         <servlet-name>TranscodeServlet</servlet-name>
         <url-pattern>/transcode/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StorageServlet</servlet-name>
+        <url-pattern>/StorageServlet</url-pattern>
     </servlet-mapping>
     <!-- 
  <servlet>

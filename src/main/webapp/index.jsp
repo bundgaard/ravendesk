@@ -28,7 +28,7 @@
                     
                 </div>
                 <ul id="ravenPanelMenu">
-                    <li id="feedItems">Favorite feeds
+                    <li id="ravenSubPanel">Favorite feeds
                         <ul >
                             <li>No feeds</li>
                         </ul>
@@ -58,6 +58,5 @@
             <p><a href="#= link #" class="k-link listitem" target="_new">Link</a></p>
             </div>
         </script>
-
     </body>
 </html>

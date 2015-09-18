@@ -4,47 +4,52 @@
  * and open the template in the editor.
  */
 
-var _feedArray = ['http://feeds.abcnews.com/abcnews/topstories'];
+var indexApp = (function ($, fm, tl, kendo, console) {
+});
 
 function onChage() {
     $("#ravenList").html(kendo.render(kendo.template($("#ravenListTemplate")).html(), this.view()));
 }
+
 $("#addbtn").click(function () {
     var addWindow = $("#ravenAddWindow").data("kendoWindow");
 
     addWindow.center();
     addWindow.open();
 });
+
+
 $("input[name=ravenWindowClose]").click(function () {
     var addWindow = $("#ravenAddWindow").data("kendoWindow");
     addWindow.close();
 });
-    var itemsDS = new kendo.data.DataSource({
-        transport: {
-            read: {
-                url: '/ravendesk/transcode/',
-                data: {
-                    q: "http://feeds.abcnews.com/abcnews/topstories"
-                }
-            } //end of read
-        }, //endofTransport
-        schema: {
-            data: "messages",
-            total: function (resp) {
-                return resp.messages.length;
-            },
-            model: {
-                fields: [
-                    {title: "title"},
-                    {description: "description"},
-                    {link: "link"},
-                    {thumbnail: "thumbnail"}
-                ]
+
+var itemsDS = new kendo.data.DataSource({
+    transport: {
+        read: {
+            url: '/ravendesk/transcode/',
+            data: {
+                q: "http://feeds.abcnews.com/abcnews/topstories"
             }
-        }, // end of schema
-        pageSize: 15
-                /*change: onChage*/
-    });
+        } //end of read
+    }, //endofTransport
+    schema: {
+        data: "messages",
+        total: function (resp) {
+            return resp.messages.length;
+        },
+        model: {
+            fields: [
+                {title: "title"},
+                {description: "description"},
+                {link: "link"},
+                {thumbnail: "thumbnail"}
+            ]
+        }
+    }, // end of schema
+    pageSize: 15
+            /*change: onChage*/
+});
 
 $(document).ready(function () {
     itemsDS.read();
@@ -70,8 +75,8 @@ $(document).ready(function () {
         visible: false
     });
     var ravenPanelFeed = $("#ravenPanelMenu").data("kendoPanelBar");
-    ravenPanelFeed.expand($("#feedItems"));
-
     var splitter = $("#splitter").data("kendoSplitter");
+
+    ravenPanelFeed.expand($("#feedItems"));
 
 });

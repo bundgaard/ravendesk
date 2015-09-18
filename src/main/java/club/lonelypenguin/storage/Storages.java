@@ -5,7 +5,9 @@
  */
 package club.lonelypenguin.storage;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,22 +17,39 @@ import java.util.List;
  * @author dbundgaard
  */
 public class Storages {
+
     private static final String PREFIX = "raven_";
-    List<Storage> entries = new ArrayList<Storage>();
+    private final List<Storage> entries = new ArrayList<Storage>();
     
-    public List<Storage> getEntries() {
+    public Storages() {
         List<Storage> l_entries = new ArrayList<Storage>();
         try {
             File tmpFolder = new File("/tmp");
-//            FilenameFilter filter = new FilenameFilter();
-//            filter.accept("/tmp", PREFIX + "*.txt");
-//            File[] files = tmpFolder.listFiles();
-        }catch(Exception e){
-            
+            FilenameFilter filter = new FilenameFilter() {
+
+                @Override
+                public boolean accept(File dir, String name) {
+                    boolean hasPrefix = name.startsWith(PREFIX);
+                    return (hasPrefix && name.endsWith(".txt"));
+                }
+            };
+            File[] files = tmpFolder.listFiles(filter);
+            for (File foundFile : files) {
+                // filename = title
+                // contents = address
+                BufferedReader reader = new BufferedReader(new FileReader(foundFile));
+                l_entries.add(new Storage(foundFile.getName().replace(".txt", ""), reader.readLine()));
+                reader.close();
+
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
-        return l_entries;
+        entries.addAll(l_entries);
     }
-    
-    
-    
+
+    public List<Storage> getEntries() {
+        return entries;
+    }
+
 }
