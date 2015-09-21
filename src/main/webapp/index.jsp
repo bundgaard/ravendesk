@@ -7,9 +7,9 @@
 
         <link rel="shortcut icon" href="/ravendesk/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/ravendesk/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.common-material.min.css">
+        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.common.min.css">
         <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.rtl.min.css">
-        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.materialblack.min.css">
+        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.uniform.min.css">
         <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.mobile.all.min.css">
         
         <link rel="stylesheet" href="site/css/indexlayout.css">
@@ -23,8 +23,8 @@
     <body>
         <div id="splitter">
             <div>
-                <div id="topbar" style="padding-left: 10px;">
-                    <button class="k-button" id="addbtn">Add</button>
+                <div id="topbar" style="padding-left: 10px; margin: 5px 5px 5px 5px;">
+                    <button class="k-button" id="addFeedBtn">Add Feed</button>
                     
                 </div>
                 <ul id="ravenPanelMenu">
@@ -53,7 +53,7 @@
         </div>
         <script id="ravenListTemplate" type="text/x-kendo-template">
             <div class="product">          
-            <img width="128" height="128 " src="#=thumbnail[0].url#" alt="#=thumbnail[0].credit#">
+            <img src="#=thumbnail[0].url#" alt="#=thumbnail[0].credit#">
             <h3>#= title #</h3>
             <p><a href="#= link #" class="k-link listitem" target="_new">Link</a></p>
             </div>

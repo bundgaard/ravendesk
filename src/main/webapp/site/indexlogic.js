@@ -11,18 +11,15 @@ function onChage() {
     $("#ravenList").html(kendo.render(kendo.template($("#ravenListTemplate")).html(), this.view()));
 }
 
-$("#addbtn").click(function () {
-    var addWindow = $("#ravenAddWindow").data("kendoWindow");
 
-    addWindow.center();
-    addWindow.open();
-});
+var feedList = {feeds: [
+    {title: "Title1", address: "address goes here!"},
+    {title: "Title1", address: "address goes here!"},
+    {title: "Title1", address: "address goes here!"},
+    {title: "Title1", address: "address goes here!"}
+]};
 
 
-$("input[name=ravenWindowClose]").click(function () {
-    var addWindow = $("#ravenAddWindow").data("kendoWindow");
-    addWindow.close();
-});
 
 var itemsDS = new kendo.data.DataSource({
     transport: {
@@ -53,12 +50,21 @@ var itemsDS = new kendo.data.DataSource({
 
 $(document).ready(function () {
     itemsDS.read();
+    $("#addFeedBtn").click(function () {
+        var addWindow = $("#ravenAddWindow").data("kendoWindow");
+        addWindow.center();
+        addWindow.open();
+    });
     $("#ravenList").kendoListView({
         dataSource: itemsDS,
         template: kendo.template($("#ravenListTemplate").html())
     });
     $("#ravenListPager").kendoPager({
         dataSource: itemsDS
+    });
+    $("input[name=ravenWindowClose]").click(function () {
+        var addWindow = $("#ravenAddWindow").data("kendoWindow");
+        addWindow.close();
     });
 
     $("#ravenPanelMenu").kendoPanelBar({
@@ -76,7 +82,14 @@ $(document).ready(function () {
     });
     var ravenPanelFeed = $("#ravenPanelMenu").data("kendoPanelBar");
     var splitter = $("#splitter").data("kendoSplitter");
-
+    var feedsDS = new kendo.data.DataSource({
+        data: {feeds: [{title:"hej"},{title: "med"}]},
+        schema: {
+            data: "feeds"
+        }
+    });
+    var template=kendo.template("#=title#");
+    console.log(feedsDS, template(feedsDS));
     ravenPanelFeed.expand($("#feedItems"));
 
 });

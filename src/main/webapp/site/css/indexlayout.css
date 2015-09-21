@@ -38,7 +38,7 @@ html, body {
 }
 .product img {
     width: 110px;
-    height: 110px;
+    height: auto;
 }
 .product h3 {
     margin: 0;
@@ -58,11 +58,11 @@ html, body {
     visibility: visible;
     position: absolute;
     width: 110px;
-    height: 110px;
+    height: auto;
     top: 0;
     margin: 0;
     padding: 0;
-    line-height: 110px;
+    line-height: 90px;
     vertical-align: middle;
     text-align: center;
     color: #fff;

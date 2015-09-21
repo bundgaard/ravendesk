@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ravendesk</title>
+
+        <link rel="shortcut icon" href="/ravendesk/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/ravendesk/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.common.min.css">
+        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.rtl.min.css">
+        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.uniform.min.css">
+        <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.2.805/styles/kendo.mobile.all.min.css">
+
+
+
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://kendo.cdn.telerik.com/2015.2.805/js/angular.min.js"></script>
+        <script src="http://kendo.cdn.telerik.com/2015.2.805/js/jszip.min.js"></script>
+        <script src="http://kendo.cdn.telerik.com/2015.2.805/js/kendo.all.min.js"></script>
+
+    </head>
+    <body>
+        <div id="example"></div>
+        <ul id="myPanel">            
+        </ul>
+        <script>
+            $(document).ready(function() {
+                // var templ = kendo.template($("#exampleTmpl").html());
+                var templ = kendo.template("<li class='k-item'><a href=#= address #>#= title #</a></li>");
+                var data = [{title: "Title1", address: "address1"},{title:"Oscar", address:"address2"}];
+                var result = kendo.render(templ, data);
+                
+             
+                $("ul").html(result);
+                $("ul").kendoPanelBar();
+            });
+            
+
+        </script>
+    </body>
+</html>

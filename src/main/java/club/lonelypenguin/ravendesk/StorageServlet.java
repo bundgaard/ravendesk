@@ -27,6 +27,11 @@ public class StorageServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         resp.getOutputStream().write(mapper.writeValueAsBytes(s));
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+                
+    }
   
 
 }
